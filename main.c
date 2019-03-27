@@ -481,11 +481,11 @@ main(int argc, char **argv)
 
 	while (!force_quit)
 	{ 
-        	void *packet;
+        	void *packet=Null;
 
 		//rte_ring_dequeue (struct rte_ring *r, void **obj_p)
 		print_stats();
-                if (rte_ring_dequeue(mbuf_ring, &packet) < 0)  
+                if (rte_ring_dequeue(mbuf_ring, &packet) == 0)  
 		{
                         usleep(2);
 			
